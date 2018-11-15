@@ -4,8 +4,8 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `biblioteca`
 --
---CREATE DATABASE `biblioteca` DEFAULT CHARACTER SET utf8 COLLATE utf8_spanish_ci;
---USE `biblioteca`;
+-- CREATE DATABASE `biblioteca` DEFAULT CHARACTER SET utf8 COLLATE utf8_spanish_ci;
+-- USE `biblioteca`;
 
 -- --------------------------------------------------------
 
@@ -21,7 +21,7 @@ CREATE TABLE IF NOT EXISTS `movies` (
   `embedUrl` TEXT COLLATE utf8_spanish_ci NOT NULL,
   `datePublished` date NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET set utf8  DEFAULT COLLATE set utf8_spanish_ci;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `movies`
@@ -105,3 +105,28 @@ INSERT INTO `videogames` (`name`, `description`, `gamePlatform`, `applicationSub
 ('Warlords of Draenor', 'World of Warcraft: Warlods of Draenor es un videojuego de la saga Warcraft. Es la quinta expansión del videojuego de World of Warcraft. Está desarrollado y distribuido por Blizzard Entertainment. La expansión aumentará el nivel máximo actual de 90 a 100 e introduce un nuevo sistema de "Ciudadelas" con niveles de actualización. En sus primeras 24 horas, ya había vendido más de 3.3 millones de copias, llevando la base global de suscriptores del juego más allá de la marca de los 10 millones.', 'PC', 'Rol multijugador masivo en línea', 'http://img2.wikia.nocookie.net/__cb20131108233344/wowwiki/images/b/b7/WarlordsofDraenorLogo_Shadow.png', 'https://www.youtube.com/embed/NVE2FxMWxeg', '2014-11-13'),
 ('Assassin''s Creed: Unity', 'Assassin''s Creed: Unity es un videojuego de ficción histórica desarrollado por Ubisoft. Es la séptima entrega de la saga Assassin''s Creed y su temática gira en torno a la Revolución Francesa, en el siglo XVIII. El juego fue lanzado en Norteamérica el 11 de noviembre del 2014 y en Europa el 13 de noviembre de 2014.', 'PS4', 'Acción-aventura(parkour) y sigilo', 'https://drh1.img.digitalriver.com/DRHM/Storefront/Company/ubi/images/hero/ubi/ACU_hero.jpg', 'https://www.youtube.com/embed/NVE2FxMWxeg', '2014-11-13'),
 ('League of Legends', 'League of Legends, también conocido por sus siglas LoL, es un videojuego de género multiplayer online battle arena (MOBA). El juego está inspirado en el popular mapa personalizado del Warcraft III, Defense of the Ancients: Allstars (abreviado normalmente con las siglas DotA) diseñado por Steve «Guinsoo» Feak y Steve «Pendragon» Mescon.', 'PC', 'Campo De Batalla Multijugador En Línea', 'http://www.funandseriousgamefestival.com/imagenes/league-of-legends-g.jpg', 'https://www.youtube.com/embed/ZqilPmPw2yc', '2009-10-27');
+--
+-- Estructura de tabla para la tabla `videogames`
+--
+
+CREATE TABLE IF NOT EXISTS `tvseries` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` TEXT COLLATE utf8_spanish_ci NOT NULL,
+  `description` TEXT COLLATE utf8_spanish_ci NOT NULL,
+  `channelPlatform` TEXT COLLATE utf8_spanish_ci NOT NULL,
+  `category` TEXT COLLATE utf8_spanish_ci NOT NULL,
+  `seasons` TEXT COLLATE utf8_spanish_ci NOT NULL,
+  `language` TEXT COLLATE utf8_spanish_ci NOT NULL,
+  `episodes` TEXT COLLATE utf8_spanish_ci NOT NULL,
+  `datePublished` date NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `videogames`
+--
+
+INSERT INTO `tvseries` (`name`, `description`, `channelPlatform`, `category`, `seasons`, `language`, `episodes`, `datePublished`) VALUES
+('Game of thrones', 'Game of thrones: Serie basada en la trilogia cancion de hielo y fuego.', 'HBO', 'Genero Fantastico' ,'7 temporadas', 'Ingles', '67 episodios', '2011-03-17'),
+('The big bang theory', 'The big bang theory :Comedia basada en la convivencia de unos freakis','CBS', 'Comedia', '12 temporadas', 'Ingles', '150 episodios', '2007-09-24'),
+('Breaking Bad', 'Breaking Bad: Drama violento sobre la transformación de las personas en función de las circunstancias que las rodean.', 'AMC', 'Drama violento.', '5 Temporadas', 'Ingles', '62 Episodios', '2008-01-20');
