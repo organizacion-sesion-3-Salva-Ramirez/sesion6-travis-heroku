@@ -12,11 +12,11 @@ $app->get('/tvseries', function ($req, $res, $args) {
     // Creamos un objeto collection + json con la lista de películas
 
     // Obtenemos la lista de películas de la base de datos y la convertimos del formato Json (el devuelto por Eloquent) a un array PHP
-    $juegos = json_decode(\TvSeries::all());
+    $pelis = json_decode(\TvSeries::all());
 
     // Mostramos la vista
     return $this->view->render($res, 'tvserieslist_template.php', [
-        'items' => $juegos
+        'items' => $pelis
     ]);
 })->setName('series');
 
@@ -28,11 +28,11 @@ $app->get('/tvseries/{name}', function ($req, $res, $args) {
 
     // Obtenemos el videojuego de la base de datos a partir de su id y la convertimos del formato Json (el devuelto por Eloquent) a un array PHP
     $p = \TvSeries::find($args['name']);
-    $juego = json_decode($p);
+    $peli = json_decode($p);
 
     // Mostramos la vista
     return $this->view->render($res, 'tvseries_template.php', [
-        'item' => $juego
+        'item' => $peli
     ]);
 
 });
