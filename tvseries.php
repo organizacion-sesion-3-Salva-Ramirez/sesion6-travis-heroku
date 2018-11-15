@@ -66,17 +66,17 @@ $app->post('/tvseries', function ($req, $res, $args) {
             $plataf = $datos[$i]['value'];
             break;
         case "category":
-            $category = $datos[$i]['value'];
+            $catego = $datos[$i]['value'];
             break;
         case "seasons":
-            $seasons = $datos[$i]['value'];
+            $seaso = $datos[$i]['value'];
             break;
 				case "language":
-		            $languages = $datos[$i]['value'];
-		            break;
+		        $langua = $datos[$i]['value'];
+		        break;
 				case "episodes":
-				        $episodes = $datos[$i]['value'];
-				        break;
+				    $episod = $datos[$i]['value'];
+				    break;
         case "datePublished":
             $date = $datos[$i]['value'];
             break;
@@ -88,7 +88,7 @@ $app->post('/tvseries', function ($req, $res, $args) {
     $tvseries->name = $name;
     $tvseries->description = $desc;
     $tvseries->channelPlatform = $plataf;
-    $tvseries->category = $categ;
+    $tvseries->category = $catego;
     $tvseries->seasons =  $seaso;
 		$tvseries->language =  $langua;
 		$tvseries->episodes =  $episod;
@@ -118,25 +118,25 @@ $app->put('/tvseries/{name}', function ($req, $res, $args) {
             $name = $item['value'];
             break;
         case "description":
-            $desc = $item['value'];
+            $description = $item['value'];
             break;
         case "channelPlatform":
-            $plataf = $item['value'];
+            $channelPlatform = $item['value'];
             break;
 
         case "category":
-            $categ = $item['value'];
+            $category = $item['value'];
             break;
 
         case "seasons":
-            $seaso = $item['value'];
+            $seasons = $item['value'];
             break;
 
         case "language":
-            $langua = $item['value'];
+            $language = $item['value'];
             break;
 				case "episodes":
-		            $episod = $item['value'];
+		            $episodes = $item['value'];
 		            break;
         case "datePublished":
             $date = $item['value'];
@@ -145,13 +145,13 @@ $app->put('/tvseries/{name}', function ($req, $res, $args) {
 	}
 
 	$nuevo_tvseries['name'] = $name;
-	$nuevo_tvseries['description'] = $desc;
-	$nuevo_tvseries['channelPlatform'] = $plataf;
-	$nuevo_tvseries['category'] = $categ;
-	$nuevo_tvseries['seasons'] = $seaso;
-	$nuevo_tvseries['language'] = $langua;
-	$nuevo_tvseries['episodes'] = $episod;
-	$nuevo_tvseries['datePublished'] = $date;
+	$nuevo_tvseries['description'] = $description;
+	$nuevo_tvseries['channelPlatform'] = $channelPlatform;
+	$nuevo_tvseries['category'] = $category;
+	$nuevo_tvseries['seasons'] = $seasons;
+	$nuevo_tvseries['language'] = $language;
+	$nuevo_tvseries['episodes'] = $episodes;
+	$nuevo_tvseries['datePublished'] = $datePublished;
 	$nuevo_tvseries->save();
 
 });
