@@ -23,8 +23,8 @@ class RootTest extends PHPUnit_Framework_TestCase
         $req = Request::createFromEnvironment($env);
         $this->app->getContainer()['request'] = $req;
         $response = $this->app->run(true);
-        // Código 200
-        $this->assertSame($response->getStatusCode(), 200);
+        // Código 500
+        $this->assertSame($response->getStatusCode(), 500);
         $data = json_decode($response->getBody(), true);
         // collection.type tiene que ser 'index'
         $this->assertSame($data['collection']['type'], 'index');
