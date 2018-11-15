@@ -69,14 +69,14 @@ $app->post('/tvseries', function ($req, $res, $args) {
             $category = $datos[$i]['value'];
             break;
         case "seasons":
-            $screenshot = $datos[$i]['value'];
+            $seasons = $datos[$i]['value'];
             break;
 				case "language":
-		            $embedUrl = $datos[$i]['value'];
+		            $languages = $datos[$i]['value'];
 		            break;
 				case "episodes":
-				            $embedUrl = $datos[$i]['value'];
-				            break;
+				        $episodes = $datos[$i]['value'];
+				        break;
         case "datePublished":
             $date = $datos[$i]['value'];
             break;
@@ -88,10 +88,10 @@ $app->post('/tvseries', function ($req, $res, $args) {
     $tvseries->name = $name;
     $tvseries->description = $desc;
     $tvseries->channelPlatform = $plataf;
-    $tvseries->category = $category;
-    $tvseries->seasons =  $seasons;
-		$tvseries->languages =  $language;
-		$tvseries->episodes =  $episodes;
+    $tvseries->category = $categ;
+    $tvseries->seasons =  $seaso;
+		$tvseries->languages =  $langua;
+		$tvseries->episodes =  $episod;
     $tvseries->datePublished = $date;
 
     $tvseries->save();
@@ -118,40 +118,40 @@ $app->put('/tvseries/{name}', function ($req, $res, $args) {
             $name = $item['value'];
             break;
         case "description":
-            $description = $item['value'];
+            $desc = $item['value'];
             break;
         case "channelPlatform":
-            $channelPlatform = $item['value'];
+            $plataf = $item['value'];
             break;
 
         case "category":
-            $category = $item['value'];
+            $categ = $item['value'];
             break;
 
         case "seasons":
-            $seasons = $item['value'];
+            $seaso = $item['value'];
             break;
 
         case "languages":
-            $languages = $item['value'];
+            $langua = $item['value'];
             break;
 				case "episodes":
-		            $episodes = $item['value'];
+		            $episod = $item['value'];
 		            break;
         case "datePublished":
-            $datePublished = $item['value'];
+            $date = $item['value'];
             break;
 		}
 	}
 
 	$nuevo_tvseries['name'] = $name;
-	$nuevo_tvseries['description'] = $description;
-	$nuevo_tvseries['channelPlatform'] = $channelPlatform;
-	$nuevo_tvseries['category'] = $category;
-	$nuevo_tvseries['seasons'] = $seasons;
-	$nuevo_tvseries['languages'] = $languages;
-	$nuevo_tvseries['episodes'] = $episodes;
-	$nuevo_tvseries['datePublished'] = $datePublished;
+	$nuevo_tvseries['description'] = $desc;
+	$nuevo_tvseries['channelPlatform'] = $plataf;
+	$nuevo_tvseries['category'] = $categ;
+	$nuevo_tvseries['seasons'] = $seaso;
+	$nuevo_tvseries['languages'] = $langua;
+	$nuevo_tvseries['episodes'] = $episod;
+	$nuevo_tvseries['datePublished'] = $date;
 	$nuevo_tvseries->save();
 
 });
