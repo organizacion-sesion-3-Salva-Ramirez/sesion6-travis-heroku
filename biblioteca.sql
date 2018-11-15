@@ -21,7 +21,7 @@ CREATE TABLE IF NOT EXISTS `movies` (
   `embedUrl` TEXT COLLATE utf8_spanish_ci NOT NULL,
   `datePublished` date NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB  DEFAULT CHARSET set utf8  DEFAULT COLLATE set utf8_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `movies`
