@@ -123,7 +123,7 @@ CREATE TABLE IF NOT EXISTS `tvseries` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
--- Volcado de datos para la tabla `videogames`
+-- Volcado de datos para la tabla `tvseries`
 --
 
 INSERT INTO `tvseries` (`name`, `description`, `channelPlatform`, `category`, `seasons`, `language`, `episodes`, `datePublished`) VALUES
