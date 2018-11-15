@@ -84,27 +84,28 @@ $app->post('/tvseries', function ($req, $res, $args) {
         }
     }
 
-    $videogame = new Videogame;
-    $videogame->name = $name;
-    $videogame->description = $desc;
-    $videogame->gamePlatform = $plataf;
-    $videogame->applicationSubCategory = $category;
-    $videogame->screenshot =  $screenshot;
-    $videogame->datePublished = $date;
-    $videogame->embedUrl = $embedUrl;
+    $tvseries = new TVseries;
+    $tvseries->name = $name;
+    $tvseries->description = $desc;
+    $tvseries->channelPlatform = $plataf;
+    $tvseries->category = $category;
+    $tvseries->seasons =  $seasons;
+		$tvseries->languages =  $language;
+		$tvseries->episodes =  $episodes;
+    $tvseries->datePublished = $date;
 
-    $videogame->save();
+    $tvseries->save();
 });
 
 
 //Actualizar videojuego
 
-$app->put('/videogames/{name}', function ($req, $res, $args) {
+$app->put('/tvseries/{name}', function ($req, $res, $args) {
 
 	// Creamos un objeto collection + json con el libro pasado como parámetro
 
 	// Obtenemos el libro de la base de datos a partir de su id y la convertimos del formato Json (el devuelto por Eloquent) a un array PHP
-	$nuevo_videogame = \VideoGame::find($args['name']);
+	$nuevo_videogame = \TVseries::find($args['name']);
 
     $template = $req->getParsedBody();
 
@@ -119,35 +120,39 @@ $app->put('/videogames/{name}', function ($req, $res, $args) {
         case "description":
             $description = $item['value'];
             break;
-        case "gamePlatform":
-            $gamePlatform = $item['value'];
+        case "channelPlatform":
+            $channelPlatform = $item['value'];
             break;
 
-        case "applicationSubCategory":
-            $applicationSubCategory = $item['value'];
+        case "category":
+            $category = $item['value'];
             break;
 
-        case "screenshot":
-            $screenshot = $item['value'];
+        case "seasons":
+            $seasons = $item['value'];
             break;
 
-        case "embedUrl":
-            $embedUrl = $item['value'];
+        case "languages":
+            $languages = $item['value'];
             break;
+				case "episodes":
+		            $episodes = $item['value'];
+		            break;
         case "datePublished":
             $datePublished = $item['value'];
             break;
 		}
 	}
 
-	$nuevo_videogame['name'] = $name;
-	$nuevo_videogame['description'] = $description;
-	$nuevo_videogame['gamePlatform'] = $gamePlatform;
-	$nuevo_videogame['applicationSubCategory'] = $applicationSubCategory;
-	$nuevo_videogame['screenshot'] = $screenshot;
-	$nuevo_videogame['embedUrl'] = $embedUrl;
-	$nuevo_videogame['datePublished'] = $datePublished;
-	$nuevo_videogame->save();
+	$nuevo_tvseries['name'] = $name;
+	$nuevo_tvseries['description'] = $description;
+	$nuevo_tvseries['channelPlatform'] = $channelPlatform;
+	$nuevo_tvseries['category'] = $category;
+	$nuevo_tvseries['seasons'] = $seasons;
+	$nuevo_tvseries['languages'] = $languages;
+	$nuevo_tvseries['episodes'] = $episodes;
+	$nuevo_tvseries['datePublished'] = $datePublished;
+	$nuevo_tvseries->save();
 
 });
 
