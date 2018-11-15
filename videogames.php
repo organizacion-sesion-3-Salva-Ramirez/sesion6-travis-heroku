@@ -27,7 +27,7 @@ $app->get('/videogames/{name}', function ($req, $res, $args) {
     // Creamos un objeto collection + json con el videojuego pasada como parámetro
 
     // Obtenemos el videojuego de la base de datos a partir de su id y la convertimos del formato Json (el devuelto por Eloquent) a un array PHP
-    $p = \VideoGame::find($args['name']);  
+    $p = \VideoGame::find($args['name']);
     $juego = json_decode($p);
 
     // Mostramos la vista
@@ -39,9 +39,9 @@ $app->get('/videogames/{name}', function ($req, $res, $args) {
 
 /*  Eliminacion de un videojuego en concreto  */
 $app->delete('/videogames/{name}', function ($req, $res, $args) {
-	
+
     // Obtenemos el videojuego de la base de datos a partir de su id y la convertimos del formato Json (el devuelto por Eloquent) a un array PHP
-    $p = \VideoGame::find($args['name']); 
+    $p = \VideoGame::find($args['name']);
     $p->delete();
 
 });
@@ -50,7 +50,7 @@ $app->delete('/videogames/{name}', function ($req, $res, $args) {
 $app->post('/videogames', function ($req, $res, $args) {
     //Código para peticiones de POST (creación de items)
     $template = $req->getParsedBody();
-    $datos = $template['template']['data'];  
+    $datos = $template['template']['data'];
 
     $longitud = count($datos);
     for($i=0; $i<$longitud; $i++)
@@ -76,10 +76,10 @@ $app->post('/videogames', function ($req, $res, $args) {
             break;
         case "embedUrl":
             $embedUrl = $datos[$i]['value'];
-            break;		
-        }    
+            break;
+        }
     }
-  
+
     $videogame = new Videogame;
     $videogame->name = $name;
     $videogame->description = $desc;
@@ -88,7 +88,7 @@ $app->post('/videogames', function ($req, $res, $args) {
     $videogame->screenshot =  $screenshot;
     $videogame->datePublished = $date;
     $videogame->embedUrl = $embedUrl;
-  
+
     $videogame->save();
 });
 
@@ -100,13 +100,13 @@ $app->put('/videogames/{name}', function ($req, $res, $args) {
 	// Creamos un objeto collection + json con el libro pasado como parámetro
 
 	// Obtenemos el libro de la base de datos a partir de su id y la convertimos del formato Json (el devuelto por Eloquent) a un array PHP
-	$nuevo_videogame = \VideoGame::find($args['name']);	
+	$nuevo_videogame = \VideoGame::find($args['name']);
 
     $template = $req->getParsedBody();
 
 	$datos = $template['template']['data'];
   	foreach ($datos as $item)
-  	{ 
+  	{
 		switch($item['name'])
 		{
         case "name":
@@ -126,7 +126,7 @@ $app->put('/videogames/{name}', function ($req, $res, $args) {
         case "screenshot":
             $screenshot = $item['value'];
             break;
-				
+
         case "embedUrl":
             $embedUrl = $item['value'];
             break;
