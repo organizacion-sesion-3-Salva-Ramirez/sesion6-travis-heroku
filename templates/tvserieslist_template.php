@@ -26,7 +26,7 @@
 
                 {% endfor %}
 
-            ],
+            ]
 
             "template" : {
             "data" : [
