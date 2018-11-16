@@ -17,8 +17,7 @@ $app->get('/tvseries', function ($req, $res, $args) {
 
     // Mostramos la vista
     return $this->view->render($res, 'tvserieslist_template.php', [
-        'items' => $peliss
-    ]);
+        'items' => $peliss ]);
 })->setName('tvseries');
 
 
