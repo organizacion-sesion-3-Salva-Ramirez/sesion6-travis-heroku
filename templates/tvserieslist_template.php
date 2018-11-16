@@ -10,8 +10,8 @@
                 {"rel" : "collection", "href" : "{{ path_for('movies') }}","prompt":"Movies"},
                 {"rel" : "collection", "href" : "{{ path_for('books') }}","prompt":"Books"},
                 {"rel" : "collection", "href" : "{{ path_for('musicalbums') }}","prompt":"Music Albums"},
-                {"rel" : "collection", "href" : "{{ path_for('games') }}","prompt":"Videogames"}
-                {"rel" : "collection", "href" : "{{ path_for('tvseries') }}","prompt":"Tvseries"}
+                {"rel" : "collection", "href" : "{{ path_for('games') }}","prompt":"Videogames"},
+                {"rel" : "collection", "href" : "{{ path_for('tvseries') }}","prompt":"Tvseries"},
             ],
 
             "items" : [
@@ -35,8 +35,8 @@
                 {"name" : "channelPlatform", "value" : "{{ item.channelPlatform }}", "prompt" : "Plataforma de la Serie"},
                 {"name" : "category", "value" : "{{ item.category }}", "prompt" : "Categoria de la Serie"},
                 {"name" : "seasons", "value" : "{{ item.seasons }}", "prompt" : "Temporadas de la Serie"},
-                {"name" : "language", "value" : "{{ item.language }}", "prompt" : "Idioma de la Serie"}
-                {"name" : "episodes", "value" : "{{ item.episodes }}", "prompt" : "Episodios de la Serie"}
+                {"name" : "language", "value" : "{{ item.language }}", "prompt" : "Idioma de la Serie"},
+                {"name" : "episodes", "value" : "{{ item.episodes }}", "prompt" : "Episodios de la Serie"},
                 {"name" : "datePublished", "value" : "{{ item.datePublished }}", "prompt" : "Fecha de lanzamiento"},
 
             ]
