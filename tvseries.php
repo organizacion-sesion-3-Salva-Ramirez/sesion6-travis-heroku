@@ -1,53 +1,53 @@
 <?php
 
 // Modelo de objetos que se corresponde con la tabla de MySQL
-class Movie extends \Illuminate\Database\Eloquent\Model
+class Tvserie extends \Illuminate\Database\Eloquent\Model
 {
     public $timestamps = false;
 }
 
 /* Obtención de la lista de películas */
 
-$app->get('/movies', function ($req, $res, $args) {
+$app->get('/tvseries', function ($req, $res, $args) {
 
     // Creamos un objeto collection + json con la lista de películas
 
     // Obtenemos la lista de películas de la base de datos y la convertimos del formato Json (el devuelto por Eloquent) a un array PHP
-    $pelis = json_decode(\Movie::all());
+    $peliss = json_decode(\Tvserie::all());
 
     // Mostramos la vista
-    return $this->view->render($res, 'movielist_template.php', [
-        'items' => $pelis
+    return $this->view->render($res, 'tvserieslist_template.php', [
+        'items' => $peliss
     ]);
-})->setName('movies');
+})->setName('tvseries');
 
 
 /*  Obtención de una película en concreto  */
-$app->get('/movies/{name}', function ($req, $res, $args) {
+$app->get('/tvseries/{name}', function ($req, $res, $args) {
 
     // Creamos un objeto collection + json con la película pasada como parámetro
 
     // Obtenemos la película de la base de datos a partir de su id y la convertimos del formato Json (el devuelto por Eloquent) a un array PHP
-    $p = \Movie::find($args['name']);
-    $peli = json_decode($p);
+    $p = \Tvserie::find($args['name']);
+    $seri = json_decode($p);
 
     // Mostramos la vista
-    return $this->view->render($res, 'movie_template.php', [
-        'item' => $peli
+    return $this->view->render($res, 'tvseries_template.php', [
+        'item' => $seri
     ]);
 
 });
 
 //Borrar pelicula
-$app->delete('/movies/{name}', function ($req, $res, $args) {
+$app->delete('/tvseries/{name}', function ($req, $res, $args) {
     //Le pasamos la variable para que la encuentre
-    $peli = Movie::find($args['name']);
+    $seri = Tvserie::find($args['name']);
     //Borramos la pelicula encontrada
-    $peli->delete();
+    $seri->delete();
 });
 
 //Guardar nueva pelicula
-$app->post('/movies', function ($req, $res, $args)  {
+$app->post('/tvseries', function ($req, $res, $args)  {
     $template = $req->getParsedBody();
 
     $datos = $template['template']['data'];
@@ -64,28 +64,40 @@ $app->post('/movies', function ($req, $res, $args)  {
         case "description":
             $description = $datos[$i]['value'];
             break;
-        case "director":
-            $director = $datos[$i]['value'];
+        case "channelPlatform":
+            $channelPlatform = $datos[$i]['value'];
             break;
-        case "embedUrl":
-            $embedUrl = $datos[$i]['value'];
+        case "category":
+            $category = $datos[$i]['value'];
+            break;
+        case "seasons":
+            $seasons = $datos[$i]['value'];
+            break;
+        case "language":
+            $language = $datos[$i]['value'];
+            break;
+        case "episodes":
+            $episodes = $datos[$i]['value'];
             break;
         case "datePublished":
             $datePublished = $datos[$i]['value'];
             break;
         }
     }
-    $nueva_movie = new Movie;
-    $nueva_movie['name'] = $name;
-    $nueva_movie['description'] = $description;
-    $nueva_movie['director'] = $director;
-    $nueva_movie['datePublished'] = $datePublished;
-    $nueva_movie['embedUrl'] = $embedUrl;
+    $nueva_serie = new Tvserie;
+    $nueva_serie['name'] = $name;
+    $nueva_serie['description'] = $description;
+    $nueva_serie['channelPlatform'] = $channelPlatform;
+    $nueva_serie['category'] = $category;
+    $nueva_serie['seasons'] = $seasons;
+    $nueva_serie['language'] = $language;
+    $nueva_serie['episodes'] = $episodes;
+    $nueva_serie['datePublished'] = $datePublished;
 
-    $nueva_movie->save();
+    $nueva_serie->save();
 });
 //Actualizar pelicula
-$app->put('/movies/{id}', function ($req, $res, $args) {
+$app->put('/tvseries/{id}', function ($req, $res, $args) {
     $template = $req->getParsedBody();
     $datos = $template['template']['data'];
     //longitud del vector
@@ -93,34 +105,46 @@ $app->put('/movies/{id}', function ($req, $res, $args) {
     //bucle que recorre vector
     for ($i = 0; $i < $longitud; $i++)
     {
-        switch($datos[$i]['name'])
-        {
-        case "name":
-            $name = $datos[$i]['value'];
-            break;
-        case "description":
-            $description = $datos[$i]['value'];
-            break;
-        case "director":
-            $director = $datos[$i]['value'];
-            break;
-        case "embedUrl":
-            $embedUrl = $datos[$i]['value'];
-            break;
-        case "datePublished":
-            $datePublished = $datos[$i]['value'];
-            break;
-        }
+     switch($datos[$i]['name'])
+     {
+      case "name":
+          $name = $datos[$i]['value'];
+          break;
+      case "description":
+          $description = $datos[$i]['value'];
+          break;
+      case "channelPlatform":
+          $channelPlatform = $datos[$i]['value'];
+          break;
+      case "category":
+          $category = $datos[$i]['value'];
+          break;
+      case "seasons":
+          $seasons = $datos[$i]['value'];
+          break;
+      case "language":
+          $language = $datos[$i]['value'];
+          break;
+      case "episodes":
+          $episodes = $datos[$i]['value'];
+          break;
+      case "datePublished":
+          $datePublished = $datos[$i]['value'];
+          break;
+      }
     }
 
-    $nueva_movie = Movie::find($args['id']);
-    $nueva_movie['name'] = $name;
-    $nueva_movie['description'] = $description;
-    $nueva_movie['director'] = $director;
-    $nueva_movie['embedUrl'] = $embedUrl;
-    $nueva_movie['datePublished'] = $datePublished;
-
-    $nueva_movie->save();
+    $nueva_serie = new Tvserie::find($args['id']);
+    $nueva_serie['name'] = $name;
+    $nueva_serie['description'] = $description;
+    $nueva_serie['channelPlatform'] = $channelPlatform;
+    $nueva_serie['category'] = $category;
+    $nueva_serie['seasons'] = $seasons;
+    $nueva_serie['language'] = $language;
+    $nueva_serie['episodes'] = $episodes;
+    $nueva_serie['datePublished'] = $datePublished;
+    
+    $nueva_serie->save();
 
 });
 
