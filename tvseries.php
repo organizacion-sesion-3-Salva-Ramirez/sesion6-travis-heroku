@@ -134,7 +134,7 @@ $app->put('/tvseries/{id}', function ($req, $res, $args) {
       }
     }
 
-    $nueva_serie = new Tvserie::find($args['id']);
+    $nueva_serie = Tvserie::find($args['id']);
     $nueva_serie['name'] = $name;
     $nueva_serie['description'] = $description;
     $nueva_serie['channelPlatform'] = $channelPlatform;
