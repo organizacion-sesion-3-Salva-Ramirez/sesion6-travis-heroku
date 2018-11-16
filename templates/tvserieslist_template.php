@@ -1,7 +1,7 @@
 { "collection" :
     {
         "title" : "TvSeries Database",
-            "type" : "TvSeries",
+            "type" : "Tvserie",
             "version" : "1.0",
             "href" : "{{ path_for('games')}}",
 
@@ -11,7 +11,7 @@
                 {"rel" : "collection", "href" : "{{ path_for('books') }}","prompt":"Books"},
                 {"rel" : "collection", "href" : "{{ path_for('musicalbums') }}","prompt":"Music Albums"},
                 {"rel" : "collection", "href" : "{{ path_for('games') }}","prompt":"Videogames"}
-                {"rel" : "collection", "href" : "{{ path_for('series') }}","prompt":"Tvseries"}
+                {"rel" : "collection", "href" : "{{ path_for('tvseries') }}","prompt":"Tvseries"}
             ],
 
             "items" : [
