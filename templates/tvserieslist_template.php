@@ -18,7 +18,7 @@
                 {% for item in items %}
 
                 {
-                    "href" : "{{ path_for('series') }}/{{ item.id }}",
+                    "href" : "{{ path_for('tvseries') }}/{{ item.id }}",
                         "data" : [
                             {"name" : "name", "value" : "{{ item.name }}", "prompt" : "Nombre de la Serie"}
                         ]
