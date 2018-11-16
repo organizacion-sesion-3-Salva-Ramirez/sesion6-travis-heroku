@@ -1,9 +1,9 @@
 { "collection" :
     {
         "title" : "TV serie Database",
-            "type" : "TvSeries",
+            "type" : "Tvserie",
             "version" : "1.0",
-            "href" : "{{ path_for('series')}}",
+            "href" : "{{ path_for('tvseries')}}",
 
             "links" : [
                 {"rel" : "profile" , "href" : "http://schema.org/tvseries","prompt":"Perfil"},
@@ -16,7 +16,7 @@
 
             "items" : [
                 {
-                    "href" : "{{ path_for('games') }}/{{ item.id }}",
+                    "href" : "{{ path_for('tvseries') }}/{{ item.id }}",
                         "data" : [
                             {"name" : "name", "value" : "{{ item.name }}", "prompt" : "Nombre de la serie"},
                             {"name" : "description", "value" : "{{ item.description }}", "prompt" : "Descripción de la serie"},

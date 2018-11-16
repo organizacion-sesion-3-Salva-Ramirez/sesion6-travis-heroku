@@ -6,7 +6,7 @@ class Tvserie extends \Illuminate\Database\Eloquent\Model
     public $timestamps = false;
 }
 
-/* Obtención de la lista de películas */
+/* Obtención de la lista de series */
 
 $app->get('/tvseries', function ($req, $res, $args) {
 
@@ -143,7 +143,7 @@ $app->put('/tvseries/{id}', function ($req, $res, $args) {
     $nueva_serie['language'] = $language;
     $nueva_serie['episodes'] = $episodes;
     $nueva_serie['datePublished'] = $datePublished;
-    
+
     $nueva_serie->save();
 
 });
