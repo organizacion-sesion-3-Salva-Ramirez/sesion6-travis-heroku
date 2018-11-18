@@ -41,7 +41,7 @@
                 {"name" : "season", "value" : "", "prompt" : "Temporadas de la serie"},
                 {"name" : "language", "value" : "", "prompt" : "Idioma de la serie"},
                 {"name" : "episodes", "value" : "", "prompt" : "Numero de episodios"},
-                {"name" : "datePublished", "value" : "", "prompt" : "Fecha de lanzamiento"},
+                {"name" : "datePublished", "value" : "", "prompt" : "Fecha de lanzamiento"}
 
             ]
                 }
